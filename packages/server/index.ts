@@ -5,10 +5,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;  // Port 4000 pour le backend
 
-app.get('/', (req: Request, res: Response) => {
-    res.send(process.env.OPENAI_API_KEY);
+// Route API qui renvoie du texte simple
+app.get('/api/message', (req: Request, res: Response) => {
+    res.send("Hello from the server!");
 });
 
 app.listen(PORT, () => {
