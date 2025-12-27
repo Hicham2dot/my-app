@@ -22,13 +22,13 @@ function App() {
       })
   }, [])
 
-  if (loading) return <p>Chargement...</p>
+  if (loading) return <p >Chargement...</p>
   if (error) return <p>Erreur: {error}</p>
 
   return (
     <div>
-      <h1>Mon Application Full Stack</h1>
-      <p>{message}</p>
+      <h1 className="text-2xl font-bold">Mon Application Full Stack</h1>
+      <p className="font-bold">{message}</p>
     </div>
   )
 }
