@@ -1,14 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import path from 'path'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   server: {
-    port: 5173,  // Port pour Vite
     proxy: {
       '/api': {
-        target: 'http://localhost:4000',  // Redirige vers le backend sur port 4000
+        target: 'http://localhost:3000',  // Redirige vers le backend sur port 4000
         changeOrigin: true
       }
     }

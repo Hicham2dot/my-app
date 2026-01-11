@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Button } from './components/ui/button'
 
 function App() {
   const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
 
   useEffect(() => {
     fetch('/api/message')
@@ -14,21 +13,15 @@ function App() {
       })
       .then((data) => {
         setMessage(data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        setError(err.message)
-        setLoading(false)
       })
   }, [])
 
-  if (loading) return <p >Chargement...</p>
-  if (error) return <p>Erreur: {error}</p>
+
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Mon Application Full Stack</h1>
+    <div className='p-4'>
       <p className="font-bold">{message}</p>
+      <Button>Click me </Button>
     </div>
   )
 }

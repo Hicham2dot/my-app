@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;  // Port 4000 pour le backend
+const PORT = process.env.PORT || 3000;  // Port 4000 pour le backend
 
 // Route API qui renvoie du texte simple
 app.get('/api/message', (req: Request, res: Response) => {
