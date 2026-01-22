@@ -7,8 +7,7 @@ const client = new OpenAI({
 
 
 export const chatService = {
-    sendPrompt: async (prompt: string, conversationId: string) => {
-            try {
+    async sendPrompt(prompt: string, conversationId: string){
             const response = await client.responses.create({
                 model: "gpt-4",
                 input: prompt,
@@ -17,10 +16,7 @@ export const chatService = {
         
             })
             conversationRepository.setLastResponseId(conversationId, response.id);
-            res.json({message: response.max_output_tokens});
-            } catch (error) {
-                res.status(500).json({error: 'Internal Server Error'});
-            }
-        }
+            return response;
+            
     }
 }
